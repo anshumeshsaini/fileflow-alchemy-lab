@@ -1,4 +1,3 @@
-
 import React from "react";
 import ConversionCard from "./ConversionCard";
 import {
@@ -13,7 +12,7 @@ import {
   Binary,
   Hash,
   FileJson,
-  FileType2 as FileCsv,
+  FileType2,
   FileSpreadsheet,
   Braces,
   FileType,

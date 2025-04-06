@@ -7,6 +7,12 @@ import { Toaster } from "sonner";
 import TextConversionModal from "@/components/TextConversionModal";
 import EncodingConversionModal from "@/components/EncodingConversionModal";
 import DataConversionModal from "@/components/DataConversionModal";
+import DataVisualizationModal from "@/components/DataVisualizationModal";
+import ImageConversionModal from "@/components/ImageConversionModal";
+import PDFConversionModal from "@/components/PDFConversionModal";
+import MediaConversionModal from "@/components/MediaConversionModal";
+import ArchiveConversionModal from "@/components/ArchiveConversionModal";
+import SmartConversionModal from "@/components/SmartConversionModal";
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("document");
@@ -33,6 +39,10 @@ const Index = () => {
       return <DataConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
     }
     
+    if (activeTool === "data-viz") {
+      return <DataVisualizationModal isOpen={isModalOpen} onClose={closeModal} />;
+    }
+    
     // Encoding conversions
     if (
       activeTool === "number-conversion" || 
@@ -41,6 +51,31 @@ const Index = () => {
       activeTool === "hash"
     ) {
       return <EncodingConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+
+    // Image conversions
+    if (activeTool === "image-conversion" || activeTool === "image-resize" || activeTool === "image-to-pdf") {
+      return <ImageConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+    
+    // PDF operations
+    if (activeTool === "merge-pdfs" || activeTool === "split-pdf" || activeTool === "pdf-extract") {
+      return <PDFConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+    
+    // Media conversions
+    if (activeTool === "audio-conversion" || activeTool === "media-trim") {
+      return <MediaConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+    
+    // Archive operations
+    if (activeTool === "create-zip" || activeTool === "extract-archive") {
+      return <ArchiveConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+    
+    // Smart conversions
+    if (activeTool === "magic-convert" || activeTool === "code-transform" || activeTool === "text-diff") {
+      return <SmartConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
     }
     
     return null;
