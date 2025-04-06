@@ -4,10 +4,47 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import ConversionTools from "@/components/ConversionTools";
 import { Toaster } from "sonner";
+import TextConversionModal from "@/components/TextConversionModal";
+import EncodingConversionModal from "@/components/EncodingConversionModal";
+import DataConversionModal from "@/components/DataConversionModal";
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("document");
   const [activeTool, setActiveTool] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleToolSelect = (tool: string) => {
+    setActiveTool(tool);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const renderConversionModal = () => {
+    // Document conversions
+    if (activeTool === "text-conversion" || activeTool === "document-conversion") {
+      return <TextConversionModal isOpen={isModalOpen} onClose={closeModal} />;
+    }
+    
+    // Data conversions
+    if (activeTool === "json-conversion" || activeTool === "csv-conversion") {
+      return <DataConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+    
+    // Encoding conversions
+    if (
+      activeTool === "number-conversion" || 
+      activeTool === "base64" || 
+      activeTool === "url-encode" || 
+      activeTool === "hash"
+    ) {
+      return <EncodingConversionModal isOpen={isModalOpen} onClose={closeModal} tool={activeTool} />;
+    }
+    
+    return null;
+  };
 
   return (
     <div className="min-h-screen flex w-full">
@@ -31,8 +68,9 @@ const Index = () => {
               </div>
               <ConversionTools
                 category={activeCategory}
-                onSelectTool={setActiveTool}
+                onSelectTool={handleToolSelect}
               />
+              {renderConversionModal()}
             </div>
           </main>
         </div>
