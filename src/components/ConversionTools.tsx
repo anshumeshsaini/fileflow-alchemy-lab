@@ -13,7 +13,7 @@ import {
   Binary,
   Hash,
   FileJson,
-  FileCsv,
+  FileType2 as FileCsv,
   FileSpreadsheet,
   Braces,
   FileType,

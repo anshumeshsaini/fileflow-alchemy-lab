@@ -11,7 +11,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex w-full">
-      <SidebarProvider defaultCollapsed={false} className="w-full">
+      <SidebarProvider className="w-full">
         <div className="flex w-full">
           <AppSidebar
             activeCategory={activeCategory}
