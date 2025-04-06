@@ -25,6 +25,7 @@ import {
   Scan,
   Split,
   Combine,
+  FileUp,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -89,7 +90,7 @@ const ConversionTools: React.FC<ConversionToolsProps> = ({
               className="animate-slide-in"
             />
             <ConversionCard
-              icon={FileCsv}
+              icon={FileUp}
               title="CSV Conversion"
               description="Convert between CSV, TSV, Excel, and JSON"
               onClick={() => {
