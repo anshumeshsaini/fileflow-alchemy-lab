@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
+import logo from './logo.png'
 interface SidebarLinkProps {
   icon: React.ReactNode;
   label: string;
@@ -72,12 +73,15 @@ const AppSidebar: React.FC<AppSidebarProps> = ({
   return (
     <Sidebar>
       <SidebarHeader className="px-6 py-5 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-semibold">
-            FA
+        <div className="flex items-center gap-[4px]">
+          <div className="flex items-center animate-fadeIn">
+            <img src={logo} alt="logo" style={{ height: '80pt' }} className="object-contain" />
           </div>
-          <span className="font-semibold text-lg">FileAlchemy</span>
+
+
         </div>
+
+
         <SidebarTrigger />
       </SidebarHeader>
       <SidebarContent className="px-4">
@@ -95,15 +99,21 @@ const AppSidebar: React.FC<AppSidebarProps> = ({
       </SidebarContent>
       <SidebarFooter className="px-4 py-4 flex justify-between items-center">
         <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            href="https://github.com/anshumeshsaini"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          <Github size={16} />
+          <Github size={16}/>
           <span>GitHub</span>
         </a>
-        <ThemeToggle />
+        <h3 className="text-violet-400  p-4 text-1000xl font-bold animate-fadeIn">
+          Made by Anshumesh
+        </h3>
+
+
+
+        <ThemeToggle/>
       </SidebarFooter>
     </Sidebar>
   );

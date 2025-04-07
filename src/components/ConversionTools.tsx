@@ -69,7 +69,7 @@ const ConversionTools: React.FC<ConversionToolsProps> = ({
               description="Compare the content of two documents"
               onClick={() => {
                 onSelectTool("document-compare");
-                toast.info("Document compare selected");
+                toast.info("Document compare comming soon");
               }}
               className="animation-delay-400 animate-slide-in"
             />
@@ -183,7 +183,7 @@ const ConversionTools: React.FC<ConversionToolsProps> = ({
             />
             <ConversionCard
               icon={FileIcon}
-              title="Image to PDF"
+              title="Image to Png"
               description="Convert one or multiple images to a PDF document"
               onClick={() => {
                 onSelectTool("image-to-pdf");
@@ -243,16 +243,7 @@ const ConversionTools: React.FC<ConversionToolsProps> = ({
               }}
               className="animate-slide-in"
             />
-            <ConversionCard
-              icon={Scissors}
-              title="Media Trimming"
-              description="Trim audio or video files to specific durations"
-              onClick={() => {
-                onSelectTool("media-trim");
-                toast.info("Media trimming functionality coming soon!");
-              }}
-              className="animation-delay-200 animate-slide-in"
-            />
+
           </div>
         );
 
